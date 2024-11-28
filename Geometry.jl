@@ -187,10 +187,12 @@ julia> Polygon("(0, 0); (1, 0); (0, 1)")
 
 
     function parseIntOrDec(str::AbstractString) #AbstractString allows this to work with substrings.
-        m = match(r"^([+-]?\d*)?(\.\d+)?", str) 
+        m = match(r"^([+-]?\d*)?(\.\d+)?", str)
         m == nothing && throw(ArgumentError("The string: $str is not an integer or decimal number"))
         m[2] != nothing ? parse(Float64, "$(m[1])$(m[2])") : parse(Int, m[1])
     end
 
+
+    midpoint(p::Polygon) = Point2D(mean(map(pt -> pt.x, p.points)), mean(map(pt -> pt.y, p.points)))
 
 end #module Geometry

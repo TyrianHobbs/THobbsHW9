@@ -84,3 +84,8 @@ end
     @test isapprox(area(rectangle), 2)
     @test isapprox(area(parallelogram), 1)
 end
+
+@testset "K- midpoint caclulations" begin
+    @test midpoint(triangle) == Point2D(1/3,1/3)
+    @test midpoint(rectangle) == Point2D(0.5,1)
+end
