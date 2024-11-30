@@ -1,9 +1,9 @@
 module Geometry
 
-    import Base.show, Base.:(==)
+    import Base.show, Base.:(==), StatsBase.mean
     import Makie: plottype, Lines, convert_arguments
 
-    export Point2D, Point3D, Polygon, distance, perimeter, isRectangular, area
+    export Point2D, Point3D, Polygon, distance, perimeter, isRectangular, area, midpoint
 
     """
             Point2D(x::Real, y::Real)
